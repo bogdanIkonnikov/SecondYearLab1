@@ -1,11 +1,12 @@
 import java.util.Scanner;
+
 public class Main {
 
-    public static void hello(){
+    public static void hello() {
         System.out.println("Hello World");
     }
 
-    public static void second(){
+    public static void second() {
         float a, b, с;
         Scanner scan = new Scanner(System.in);
         System.out.print("\nВведите первое число: ");
@@ -15,11 +16,11 @@ public class Main {
         System.out.print("Третье: ");
         с = scan.nextFloat();
         System.out.println("Ваши числа: " + a + ", " + b + ", " + с);
-        System.out.println("Их произведение: " + a*b*с);
-        System.out.println("Среднее арифметическое: " + (a+b+с)/3);
+        System.out.println("Их произведение: " + a * b * с);
+        System.out.println("Среднее арифметическое: " + (a + b + с) / 3);
 
         if (a >= b) {
-            if (a >= с){
+            if (a >= с) {
                 if (с >= b) {
                     System.out.println("Ваши числа в порядке возрастания: " + b + ", " + с + ", " + a);
                 } else System.out.println("Ваши числа в порядке возрастания: " + с + ", " + b + ", " + a);
@@ -29,7 +30,8 @@ public class Main {
         else System.out.println("Ваши числа в порядке возрастания: " + a + ", " + b + ", " + с);
 
     }
-    public static void third(){
+
+    public static void third() {
         int n1, n2, n3;
         Scanner scan = new Scanner(System.in);
         System.out.print("\nВведите первое целое число: ");
@@ -39,10 +41,10 @@ public class Main {
         System.out.print("Третье: ");
         n3 = scan.nextInt();
         System.out.println("Ваши числа: " + n1 + ", " + n2 + ", " + n3);
-        System.out.println("Их произведение: " + n1*n2*n3);
-        System.out.println("Среднее арифметическое: " + (double)(n1+n2+n3)/3);
+        System.out.println("Их произведение: " + n1 * n2 * n3);
+        System.out.println("Среднее арифметическое: " + (double) (n1 + n2 + n3) / 3);
         if (n1 >= n2) {
-            if (n1 >= n3){
+            if (n1 >= n3) {
                 if (n3 >= n2) {
                     System.out.println("Ваши числа в порядке возрастания: " + n2 + ", " + n3 + ", " + n1);
                 } else System.out.println("Ваши числа в порядке возрастания: " + n3 + ", " + n2 + ", " + n1);
@@ -62,7 +64,7 @@ public class Main {
         System.out.print("Третье: ");
         second_task_n3 = scan.nextFloat();
         D = second_task_n2 * second_task_n2 - 4 * second_task_n1 * second_task_n3;
-        if (D < 0){
+        if (D < 0) {
             System.out.println("Нет корней");
         } else if (D == 0) {
             System.out.println("Один корень: " + ((-second_task_n2) / (2 * second_task_n1)));
@@ -73,35 +75,40 @@ public class Main {
     }
 
     public static void fifth(double range1, double range2, double shag) {
-        for (range1 = range1; range1 <= range2; range1 += shag) {
-            System.out.println("Значение x: " + range1 + " Значение sin(x): " + Math.sin(range1));
+        for (double x = range1; x <= range2; x += shag) {
+            System.out.println("Значение x: " + x + " Значение sin(x): " + Math.sin(x));
         }
     }
 
-    public static void sixth(double a1, double b1, double c1, double a2, double b2, double c2){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Значение x: " + ((c1*b2 - c2*b1) / (a1*b2 - a2*b1)) + " Значение у: " + (c1 - a1 * (c1*b2 - c2*b1) / (a1*b2 - a2*b1)));
-    }
+    public static void sixth(double a1, double b1, double c1, double a2, double b2, double c2) {
+        double x = (c1 * b2 - c2 * b1) / (a1 * b2 - a2 * b1);
+        if (a1/a2 == b1/b2 && a1/a2 == c1/c2) {
+            System.out.println("Бесконечно много решений");
+        } else if (a1/a2 == b1/b2 && a1/a2 != c1/c2) {
+            System.out.println("Нет решений");
+        } else {
+            System.out.println("Значение x: " + x + " Значение у: " + (c1 - a1 * x));
+        }
+  }
 
-    public static double seventh(double ans, double x, double x_copy, double num, double accuracy){
-        for (int i = 1;;i++){
-            x = x*x_copy;
-            num = num*i;
-            if (x/num < accuracy) break;
-            ans+=x/num;
+    public static double seventh(double x, double accuracy) {
+        double element = 1, ans = 1;
+        int n = 1;
+        while (element >= accuracy) {
+            element *= x / n;
+            ans += element;
+            n++;
         }
         return ans;
     }
 
-    public static int getRandom()
-    {
+    public static int getRandom() {
         return (int) (Math.random() * 15);
     }
 
-    public static int[] getRandomArray()
-    {
+    public static int[] getRandomArray() {
         int[] array = new int[getRandom()];
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             array[i] = getRandom();
         }
         return array;
@@ -109,17 +116,17 @@ public class Main {
 
     public static void eighth(int[] array) {
         System.out.print("Ваш массив: ");
-        for (int i = 0;i<array.length;i++) {
+        for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
-
     }
 
     public static int[] ninth() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите длину массива: ");
         int[] array = new int[scan.nextInt()];
-        for (int i = 0;i<array.length;i++) {
+        System.out.println("Введите элементы массива: ");
+        for (int i = 0; i < array.length; i++) {
             System.out.print(i + " элемент массива: ");
             array[i] = scan.nextInt();
         }
@@ -128,15 +135,15 @@ public class Main {
 
     public static int tenth(int[] array) {
         int sum = 0;
-        for (int i = 0;i<array.length;i++) {
-            sum+= array[i];
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
         }
         return sum;
     }
 
     public static int eleventh(int[] array) {
         int count = 0;
-        for (int i = 0;i<array.length;i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 count++;
             }
@@ -146,7 +153,7 @@ public class Main {
 
     public static int twelfth(int[] array, int a, int b) {
         int count = 0;
-        for (int i = 0;i<array.length;i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] <= b && array[i] >= a) {
                 count++;
             }
@@ -156,8 +163,8 @@ public class Main {
 
 
     public static boolean thirteenth(int[] array) {
-        for (int i = 0;i<array.length;i++) {
-            if (array[i] < 0) {
+        for (int item : array) {
+            if (item <= 0) {
                 return false;
             }
         }
@@ -165,23 +172,22 @@ public class Main {
     }
 
     public static int[] fourteenth(int[] array) {
-        int bufer;
-        for (int i = 0; i < array.length/2; i++) {
-                bufer = array[i];
-                array[i] = array[array.length-1-i];
-                array[array.length-1-i] = bufer;
+        int buffer;
+        for (int i = 0; i < array.length / 2; i++) {
+            buffer = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = buffer;
         }
         return array;
     }
 
-    public static int choice(){
+    public static int choice() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите номер задания: ");
         return scan.nextInt();
     }
 
     public static void main(String[] args) {
-        int choice;
         switch (choice()) {
             case (1):
                 hello();
@@ -196,15 +202,17 @@ public class Main {
                 fourth();
                 break;
             case (5):
-                fifth(0,1.57,0.5);
-                fifth(0,6.28,3.14/4);
-                fifth(0,3.14,3.14/8);
+                fifth(0, 1.57, 0.5);
+                fifth(0, 6.28, 3.14 / 4);
+                fifth(0, 3.14, 3.14 / 8);
                 break;
             case (6):
-                sixth(1, 2, 4, 2, 1, 5);
+                sixth(2, 3, 6, 1, -1, 1);
+                sixth(4, 6, 12, 2, 3, 6);
+                sixth(1, 2, 4, 1, 2, 5);
                 break;
             case (7):
-                System.out.println("Ответ: " + seventh(1, 0.5, 0.5, 1, 0.001));
+                System.out.println("Ответ: " + seventh(1, 0.01));
                 break;
             case (8):
                 eighth(getRandomArray());
@@ -219,6 +227,10 @@ public class Main {
                 System.out.println("Количество четных чисел в массиве: " + eleventh(ninth()));
                 break;
             case (12):
+                int[] arr1 = {1,2,3,4,5};
+                int[] arr2 = {-1,2,3,-4,5};
+                System.out.println("Количество элементов в массиве, принадлежащих вашему отрезку: " + twelfth(arr1, 0, 5));
+                System.out.println("Количество элементов в массиве, принадлежащих вашему отрезку: " + twelfth(arr2, 0, 5));
                 System.out.println("Количество элементов в массиве, принадлежащих вашему отрезку: " + twelfth(ninth(), 0, 5));
                 break;
             case (13):

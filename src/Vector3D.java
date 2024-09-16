@@ -1,19 +1,24 @@
 import java.util.Objects;
 
-public class Point3D {
-
+public class Vector3D {
     private int x, y, z;
 
-    public Point3D(int x, int y, int z) {
+    public Vector3D(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public Point3D() {
+    public Vector3D() {
         x = 0;
         y = 0;
         z = 0;
+    }
+
+    public Vector3D(Point3D point1, Point3D point2) {
+        this.x = point2.getX() - point1.getX();
+        this.y = point2.getY() - point1.getY();
+        this.z = point2.getZ() - point1.getZ();
     }
 
     public int getX(){ return x; }
@@ -25,23 +30,26 @@ public class Point3D {
     public void setY(int y){ this.y = y; }
     public void setZ(int z){ this.z = z; }
 
-    public void printPoint() {
-        String output = "Точка с координатами: х = " + x + ", y = " + y + ", z = " + z;
-        System.out.print(output);
+    public void printVector() {
+        String output = "Вектор с координатами: х = " + x + ", y = " + y + ", z = " + z;
+        System.out.println(output);
+    }
+
+    public double getLength() {
+        return Math.sqrt(x*x + y*y + z*z);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point3D point3D = (Point3D) o;
-        return x == point3D.x && y == point3D.y && z == point3D.z;
+        Vector3D vector3D = (Vector3D) o;
+        return x == vector3D.x && y == vector3D.y && z == vector3D.z;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(x, y, z);
     }
+
 }
-
-
