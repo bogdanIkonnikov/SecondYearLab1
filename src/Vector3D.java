@@ -24,9 +24,7 @@ public class Vector3D {
     public int getX(){ return x; }
     public int getY(){ return y; }
     public int getZ(){ return z; }
-    public void setX(int x){
-        this.x = x;
-    }
+    public void setX(int x){ this.x = x; }
     public void setY(int y){ this.y = y; }
     public void setZ(int z){ this.z = z; }
 
@@ -37,6 +35,20 @@ public class Vector3D {
 
     public double getLength() {
         return Math.sqrt(x*x + y*y + z*z);
+    }
+
+    public Vector3D summVect(Vector3D vect) {
+        x = x + vect.getX();
+        y = y + vect.getY();
+        z = z + vect.getZ();
+        return this;
+    }
+
+    public Vector3D umnVect(int i) {
+        x = x * i;
+        y = y * i;
+        z = z * i;
+        return this;
     }
 
     @Override
