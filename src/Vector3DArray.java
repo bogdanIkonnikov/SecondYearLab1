@@ -11,7 +11,9 @@ public class Vector3DArray {
 
     public void setElement(int index, Vector3D vec) {
         arr[index] = vec;
-
+    }
+    public Vector3D getElement(int index) {
+        return arr[index];
     }
 
     public int getLength() {
@@ -47,5 +49,17 @@ public class Vector3DArray {
             summ = summ.summVect(arr[i].umnVect(arrInt[i]));
         }
         return summ;
+    }
+
+    public Point3D[] points(Point3D point) {
+        Point3D[] pArr = new Point3D[5];
+        Point3D p = point;
+        int i = 0;
+        for (Vector3D j : arr) {
+            pArr[i] = point.movePoint(j);
+            point = p;
+            i++;
+        }
+        return pArr;
     }
 }

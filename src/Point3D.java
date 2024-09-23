@@ -27,8 +27,13 @@ public class Point3D {
 
     public void printPoint() {
         String output = "Точка с координатами: х = " + x + ", y = " + y + ", z = " + z;
-        System.out.print(output);
+        System.out.println(output);
     }
+
+    public Point3D movePoint(Vector3D vector) {
+        return new Point3D(x + vector.getX(), y + vector.getY(), z + vector.getZ());
+    }
+
 
     @Override
     public boolean equals(Object o) {

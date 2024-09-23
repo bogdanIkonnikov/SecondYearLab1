@@ -13,6 +13,5 @@ public class PointMain { //вывод точки на консоль
         } else System.out.println("Точки не равны");
 
         point1.printPoint();
-
     }
 }
